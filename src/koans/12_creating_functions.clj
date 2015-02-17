@@ -21,18 +21,18 @@
   ;thought partial was a sort of var-arg, but the above multiplies 4 by 5, and then the result by 6 (or something to that effect)
 
   "Don't forget: first things first"
-  (= [__ __ __ __]
+  (= []
        (let [ab-adder (partial concat [:a :b])]
-         (ab-adder [__ __])))
+         (ab-adder [[1 2][3 4]])))
 
   "Functions can join forces as one 'composed' function"
   (= 25 (let [inc-and-square (comp square inc)]
-          (inc-and-square __)))
+          (inc-and-square 4)))
 
   "Have a go on a double dec-er"
-  (= __ (let [double-dec (comp dec dec)]
+  (= 8 (let [double-dec (comp dec dec)]
           (double-dec 10)))
 
   "Be careful about the order in which you mix your functions"
-  (= 99 (let [square-and-dec ___]
+  (= 99 (let [square-and-dec (comp dec square)]
           (square-and-dec 10))))
