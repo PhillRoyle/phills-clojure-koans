@@ -21,9 +21,9 @@
   ;thought partial was a sort of var-arg, but the above multiplies 4 by 5, and then the result by 6 (or something to that effect)
 
   "Don't forget: first things first"
-  (= []
+  (= [:a :b "tree" "grass"]
        (let [ab-adder (partial concat [:a :b])]
-         (ab-adder [[1 2][3 4]])))
+         (ab-adder ["tree" "grass"])))
 
   "Functions can join forces as one 'composed' function"
   (= 25 (let [inc-and-square (comp square inc)]
